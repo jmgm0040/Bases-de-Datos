@@ -1,4 +1,7 @@
 package appfutbol;
+import java.util.*;
+import java.io.*;
+
 
 public class Estadio{
 

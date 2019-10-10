@@ -1,26 +1,28 @@
 package appfutbol;
+import java.io.*;
 
 import java.util.*;
 
 public class Equipo {
 private int idequipo;
 private Estadio esta;
-private int posicion;//Posicion en la liga
-public Collection <Jugador> ljuga;
+private int posicion; //Posicion en la liga
+public LinkedList<Jugador> ljuga;
 
-Equipo(int aIdequipo, Estadio aEsta, int aPosicion, Collection <Jugador> aLjuga){
+Equipo(int aIdequipo, Estadio aEsta, int aPosicion){
 	idequipo=aIdequipo;
 	esta=aEsta;
 	posicion=aPosicion;
-	ljuga=aLjuga;
+	ljuga=new LinkedList<Jugador>();
 	
 }
 
 public void AltaJugador(Jugador j) {
-	
+	ljuga.add(j);
 }
-public void BajaJugador(String id) {
+public void BajaJugador(Jugador j) {
 	
+	ljuga.remove(j);
 }
 
 }
