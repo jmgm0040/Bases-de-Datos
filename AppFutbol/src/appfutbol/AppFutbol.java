@@ -261,6 +261,19 @@ return nuevoequipo;
 	
 	void listarJugadoresEquipo(Equipo e) {
 		
+		Equipo a=e;
+		int i=1;
+		Equipo uno;
+		LinkedList<Jugador> dos;
+		int tamanio=0;
+		tamanio=lEquipos.size();
+		for(i=1;i<(tamanio+1);i++) {
+			uno=lEquipos.get(i);
+			dos=uno.getJugadores();
+			if (a==uno) {
+				System.out.println(dos);//REVISAR 
+			}
+		}
 		
 	}
 	//Guardar datos

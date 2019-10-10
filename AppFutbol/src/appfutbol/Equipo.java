@@ -25,4 +25,10 @@ public void BajaJugador(Jugador j) {
 	ljuga.remove(j);
 }
 
+public LinkedList<Jugador> getJugadores(){
+	LinkedList<Jugador> lista=ljuga;
+	return lista;
+	
+}
+
 }
