@@ -130,7 +130,7 @@ return nuevoequipo;
 		int id2=0;
 		int idE=0;
 		int Idpartido=0;
-		String datos=null;
+		//String datos=null;
 		Estadio e=lEstadios.get(idE);
 		String Fecha=null;
 		Equipo eq1=lEquipos.get(id1); 
