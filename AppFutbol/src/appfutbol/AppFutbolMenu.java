@@ -13,6 +13,9 @@ public class AppFutbolMenu {
 		AppFutbol uno=new AppFutbol();
 		Scanner reader = new Scanner(System.in);	
 		int selector=0;	
+		int control=0;
+		while(control==0) {
+		
 		System.out.print("Menu: \nIntroduzca Opcion:\n\n" + 
 				"1: Alta Equipo\n" + 
 				"2: Baja Equipo\n" + 
@@ -42,39 +45,170 @@ public class AppFutbolMenu {
 );
 			selector=reader.nextInt();
 
-		
+	
 		switch(selector) {
 case 0: break;
-case 1:  System.out.print("Correcto");
+case 1:  
+	uno.altaEquipo();
 break;
 case 2: 
-	uno.altaEquipo();
-	break;
-case 3: break;
-case 4: break;
-case 5: break;
-case 6: break;
-case 7: break;
-case 8: break;
-case 9: break;
-case 10: break;
-case 11: 
-	uno.listarEstadios();
+	
+	System.out.println("Introduce el id del equipo a borrar");
+	int id=0;
+	id=reader.nextInt();
+	uno.bajaEquipo(id);
 	
 	break;
-case 12: break;
-case 13: break;
-case 14: break;
-case 15: break;
-case 16: break;
-case 17: break;
-case 18: break;
-case 19: break;
-case 20: break;
-case 21: break;
-case 22: break;
+case 3: 
+	
+	System.out.println("Introduce el id del equipo del jugador a añadir");
+	int id2=0;
+	id2=reader.nextInt();
+	
+	uno.altaJugador(id2);
+	
+	break;
+case 4: 
+	System.out.println("Introduce el id del jugador a borrar");
+	int idJ=0;
+	idJ=reader.nextInt();
+	uno.bajaArbitro(idJ);
+	
+	break;
+case 5: 
+	uno.altaArbitro();
+	break;
+case 6: 
+	System.out.println("Introduce el id del arbitro a borrar");
+	int idA=0;
+	idA=reader.nextInt();
+	uno.bajaArbitro(idA);
+	break;
+case 7: 
+	
+	uno.altaEstadio();
+	
+	break;
+case 8: 
+	uno.altaPartido();
+	
+	break;
+case 9: 
+	System.out.println("Introduce el id del partido a borrar");
+	int idP=0;
+	idP=reader.nextInt();
+	uno.bajaPartido(idP);
+	
+	break;
+case 10: 
+	uno.listarEquipos();
+	reader.nextLine();
+			String entrada;
+			do{
+		    entrada  = reader.nextLine();
+		    System.out.println(entrada);
+		 }
+		 while(!entrada.equals("")); 
+		 System.out.println("SE PRESIONÓ LA TECLA ENTER");
+	break;
+case 11: 
+	uno.listarEstadios();
+	reader.nextLine();
+	String entrada3;
+	do{
+    entrada3  = reader.nextLine();
+    System.out.println(entrada3);
+ }
+ while(!entrada3.equals("")); 
+ System.out.println("SE PRESIONÓ LA TECLA ENTER");
+	
+	break;
+case 12: 
+	uno.listarArbitros();
+	reader.nextLine();
+	String entrada4;
+	do{
+    entrada4  = reader.nextLine();
+    System.out.println(entrada4);
+ }
+ while(!entrada4.equals("")); 
+ System.out.println("SE PRESIONÓ LA TECLA ENTER");
+	
+	
+	break;
+case 13: 
+	
+	int nP=0;
+	nP=uno.ContarPartidos();
+	System.out.println(nP);
+	
+	break;
+case 14: 
+	
+	System.out.println("Introduce la fecha del partido a buscar");
+	String idL;
+	idL=reader.nextLine();
+	
+	uno.listarPartidos(idL);
+	
+	break;
+case 15: 
+	System.out.println("Introduce el equipo del partido a buscar");
+	int idE;
+	
+	idE=reader.nextInt();
+	uno.listarPartidosE(idE);
+	
+	break;
+case 16: 
+	System.out.println("Introduce la posicion deseada: ");
+	String pos="";
+	pos=reader.nextLine();
+	
+	uno.listarJugadores(pos);
+	reader.nextLine();
+	String entrada2;
+	do{
+    entrada2  = reader.nextLine();
+    System.out.println(entrada2);
+ }
+ while(!entrada2.equals("")); 
+ System.out.println("SE PRESIONÓ LA TECLA ENTER");
+	break;
+case 17: 
+	System.out.println("Introduce el id de equipo a buscar");
+	int idJP;
+	
+	idJP=reader.nextInt();
+	uno.listarJugadoresEquipo(idJP);
+	break;
+case 18: 
+			try {
+				uno.CargarDatos();
+			} catch (ClassNotFoundException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	break;
+case 19: 
+			try {
+				uno.Salvar();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	break;
+case 20: 
+	
+	break;
+case 21: 
+	
+	break;
+case 22:
+control=1;
+	break;
 default: break;
 }
 	}
-
+	}
 }

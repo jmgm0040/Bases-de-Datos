@@ -7,6 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.*;
+import java.util.Map.Entry;
 
 
 
@@ -29,10 +30,10 @@ Scanner reader = new Scanner(System.in);
 
 System.out.println("Introduzca id de equipo");
 
-
 idequipo=reader.nextInt();//Id equipo por teclado
 
 System.out.println("Introduzca id de estadio");
+
 reader.nextLine();
 
 idEstadio=reader.nextInt(); //Id estadio por teclado
@@ -40,22 +41,13 @@ idEstadio=reader.nextInt(); //Id estadio por teclado
 System.out.println("Introduzca direccion del estadio");
 reader.nextLine();
 
-
 direccionEstadio=reader.nextLine(); //Direccion estadio por teclado
 
-System.out.println(direccionEstadio);
-
-
-
 System.out.println("Introduzca la ciudad del estadio");
-
-
 
 ciudad=reader.nextLine(); //Ciudad por teclado
 
 
-
-System.out.println(ciudad);
 
 
 
@@ -66,29 +58,38 @@ lEstadios.put(idEstadio, nuevoEstadio); //Arreglar
 int posicion = 0;
 Equipo nuevoequipo=new Equipo(idequipo,nuevoEstadio,posicion);
 lEquipos.put(idequipo,nuevoequipo);
+
+
 return nuevoequipo;
 
 
 	}
 	//Baja equipo
-	boolean bajaEquipo() {
-		int idequipo=0;
+	boolean bajaEquipo(int id) {
+		
+		int id2 = id;
+		lEquipos.remove(id2);
+		return true;
+		/*int idequipo=0;
 		boolean control=false;
+		if (lEquipos.isEmpty()) {
 		
-		lEquipos.remove(idequipo);
-		control=true;
-		
-		
+		control=false;
+		}
+		else { 
+			lEquipos.remove(idequipo);
+			control=true;
+		}
 		if (control==true) {
 		return control;
 		}
-		else return false;
+		else return false;*/
 	}
 	//Alta jugador
 	
 	
-	Jugador altaJugador(Equipo e) {
-		int id=0; 
+	Jugador altaJugador(int id) {
+		int id2=0; 
 		String nombre=null; 
 		String email=null; 
 		String tlf=null; 
@@ -96,8 +97,44 @@ return nuevoequipo;
 		String posicion=null; 
 		boolean titular=false; 
 		int num=0;
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Introduzca nombre de jugador");
+
+		nombre=reader.nextLine();//por teclado
+
+		System.out.println("Introduzca email");
+
+		
+
+		email=reader.nextLine(); //Id estadio por teclado
+
+		System.out.println("Introduzca telefono");
+		
+
+		tlf=reader.nextLine(); //Direccion estadio por teclado
+
+		System.out.println("Introduzca salario");
+
+		salario=reader.nextInt(); //Ciudad por teclado
+		System.out.println("Introduzca posicion del jugador");
+		reader.nextLine();
+		posicion=reader.nextLine(); //Direccion estadio por teclado
+		System.out.print(posicion);
+
+		System.out.println("Introduzca si es titular");
+		
+
+		titular=reader.nextBoolean(); //Direccion estadio por teclado
+
+		System.out.println("Introduzca numero jugador");
+		
+
+		num=reader.nextInt(); //Direccion estadio por teclado
+		reader.nextLine();
+		
+
 		//Añadir busqueda equipo por id
-		Jugador nuevojugador=new Jugador(id,nombre,email,tlf,salario,posicion,titular,num);
+		Jugador nuevojugador=new Jugador(id2,nombre,email,tlf,salario,posicion,titular,num);
 		lJugadores.put(id,nuevojugador);
 		
 		
@@ -107,17 +144,10 @@ return nuevoequipo;
 	}
 	//Baja jugador
 	
-	boolean bajaJugador() {
-		int id=0;
-		boolean control=false;
-		
-		lEquipos.remove(id);
-		control=true;
-		
-		if (control==true) {
-			return control;
-			}
-			else return false;
+	boolean bajaJugador(int id) {
+		int id2 = id;
+		lEquipos.remove(id2);
+		return true;
 		
 		// de un equipo, no del sistema
 	}
@@ -130,6 +160,23 @@ return nuevoequipo;
 		String email=null;
 		String tlf=null;
 		String tipo=null;
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Introduce id de arbitro: ");
+		id=reader.nextInt();
+		
+		reader.nextLine();
+		System.out.println("Introduce nombre de arbitro: ");
+		nombre=reader.nextLine();
+		
+		System.out.println("Introduce email de arbitro: ");
+		email=reader.nextLine();
+		
+		System.out.println("Introduce tlfn de arbitro: ");
+		tlf=reader.nextLine();
+		
+		
+		System.out.println("Introduce tipo de arbitro: ");
+		tipo=reader.nextLine();
 		
 		Arbitro nuevoarbitro=new Arbitro(id,nombre,email,tlf,tipo);
 		lArbitros.put(id,nuevoarbitro);
@@ -140,16 +187,12 @@ return nuevoequipo;
 	}
 	//Baja arbitro
 	
-  boolean bajaArbitro() {
-	  int id=0;
-	  boolean control=false;
-	  lArbitros.remove(id);
-	  control=true;
+  boolean bajaArbitro(int id) {
+	  int id3=id;
 	  
-	  if (control==true) {
-			return control;
-			}
-			else return false;
+	  lArbitros.remove(id3);
+	  
+		 return true;
 	  
   }
   //Alta Estadio
@@ -159,6 +202,23 @@ return nuevoequipo;
 		String Direccion=null;
 		String Ciudad=null;
 		int Capacidad=0;
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Introduce id estadio: ");
+		Idestadio=reader.nextInt();
+		reader.nextLine();
+		System.out.println("Introduce direccion estadio: ");
+		Direccion=reader.nextLine();
+		
+		System.out.println("Introduce ciudad de estadio: ");
+		Ciudad=reader.nextLine();
+		
+		
+		System.out.println("Introduce capacidad estadio: ");
+		Capacidad=reader.nextInt();
+		
+		
+		
+		
 		Estadio nuevoestadio=new Estadio(Idestadio,Direccion,Ciudad,Capacidad);
 		lEstadios.put(Idestadio,nuevoestadio);
 		return nuevoestadio;
@@ -173,15 +233,73 @@ return nuevoequipo;
 		int id2=0;
 		int idE=0;
 		int Idpartido=0;
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Introduce id de partido: ");
+		Idpartido=reader.nextInt();
+		reader.nextLine();//Traga lineas
+		System.out.println("Introduce id de estadio: ");
+		idE=reader.nextInt();
+		reader.hasNextLine();//Traga lineas
+		System.out.println("Introduce id de equipo 1: ");
+		id1=reader.nextInt();
+		reader.hasNextLine();//Traga lineas
+		System.out.println("Introduce id de equipo 2: ");
+		id2=reader.nextInt();
+		reader.hasNextLine();//Traga lineas
+		
+		Iterator it = lEquipos.entrySet().iterator();
+		while (it.hasNext()) {
+		    Entry<Integer,Equipo> e = (Entry<Integer, Equipo>) it.next();
+		    int idEq1=e.getKey();
+		    if (id1==idEq1) {
+		    System.out.println(e.getKey() + " " + e.getValue());
+		    Equipo eq1=e.getValue();
+		    
+		}
+		}
+		Iterator it2 = lEquipos.entrySet().iterator();
+		while (it2.hasNext()) {
+		    Entry<Integer,Equipo> e = (Entry<Integer, Equipo>) it2.next();
+		    int idEq2=e.getKey();
+		    if (id2==idEq2) {
+		    System.out.println(e.getKey() + " " + e.getValue());
+		    int eq2=e.getKey();
+		    
+		}
+		}
+		Iterator it21 = lEstadios.entrySet().iterator();
+		while (it21.hasNext()) {
+		    Entry<Integer,Estadio> e = (Entry<Integer, Estadio>) it21.next();
+		    int idEE=e.getKey();
+		    if (idE==idEE) {
+		    System.out.println(e.getKey() + " " + e.getValue());
+		    Estadio E=e.getValue();
+		 
+		    
+		}
+		    //else altaEstadio();
+		}
 		//String datos=null;
-		Estadio e=lEstadios.get(idE);
+		reader.nextLine();
 		String Fecha=null;
-		Equipo eq1=lEquipos.get(id1); 
-		Equipo eq2=lEquipos.get(id2); 
+		System.out.println("Introduce fecha de partido: ");
+		Fecha=reader.nextLine();
+		System.out.println("Introduce true si es la ida: ");
 		boolean ida=false;
+
+		ida=reader.hasNextBoolean();
 		int golesA=0;
 		int golesB=0;
-		Partido nuevopartido=new Partido(Idpartido,e,Fecha,eq1,eq2,ida,golesA,golesB);
+		reader.nextLine();
+		System.out.println("Goles del equipo 1: ");
+		golesA=reader.nextInt();
+		reader.nextLine();
+		System.out.println("Goles del equipo 2: ");
+		golesB=reader.nextInt();
+		reader.nextLine();
+		
+		
+		Partido nuevopartido=new Partido(Idpartido,idE,Fecha,id1,id2,ida,golesA,golesB);
 		//REVISAR
 		//datos=nuevopartido.toString();
 		lPartidos.add(nuevopartido);
@@ -193,17 +311,12 @@ return nuevoequipo;
 	//Baja partido
 	
 	
-	boolean bajaPartido() {
-		int id=0;
-		boolean control=false;
-		lPartidos.remove(id);
+	boolean bajaPartido(int id) {
+		int id5=id;
 		
-		control=true;
-		  
-		  if (control==true) {
-				return control;
-				}
-				else return false;
+		lPartidos.remove(id5);
+		
+		return true;
 		
 	}
 	
@@ -211,7 +324,13 @@ return nuevoequipo;
 	
 	
 	void listarEstadios() {
-		System.out.println(lEstadios.values());//Comprobar la salida
+		Iterator it = lEstadios.entrySet().iterator();
+		while (it.hasNext()) {
+		    Map.Entry e = (Map.Entry)it.next();
+		    System.out.println(e.getKey() + " " + e.getValue());
+		}
+		
+		//System.out.println(lEstadios.values());//Comprobar la salida
 		
 		
 		
@@ -220,15 +339,23 @@ return nuevoequipo;
 	
 	
 	void listarEquipos() {
-		System.out.println(lEquipos.values());//Comprobar la salida
-		
+		//System.out.println(lEquipos.values());//Comprobar la salida
+		Iterator it = lEquipos.entrySet().iterator();
+		while (it.hasNext()) {
+		    Entry<Integer,Equipo> e = (Entry<Integer, Equipo>) it.next();
+		    System.out.println(e.getKey() + " " + e.getValue());
+		}
 	}
 	
 	//Listar arbitros
 	
 	void listarArbitros() {
-		System.out.println(lArbitros.values());//Comprobar la salida
-		
+		//System.out.println(lArbitros.values());//Comprobar la salida
+		Iterator it = lArbitros.entrySet().iterator();
+		while (it.hasNext()) {
+		    Map.Entry e = (Map.Entry)it.next();
+		    System.out.println(e.getKey() + " " + e.getValue());
+		}
 	}
 	//Contar partidos
 	
@@ -250,7 +377,7 @@ return nuevoequipo;
 		int tamanio=0;
 		tamanio=lPartidos.size();
 		for(i=1;i<(tamanio+1);i++) {
-			uno=lPartidos.get(i);
+			uno=lPartidos.get(i);//Arreglar
 			dos=uno.getFecha();
 			if (afecha==dos) {
 				System.out.println(uno);//REVISAR 
@@ -262,60 +389,92 @@ return nuevoequipo;
 	//Listar partidos
 	
 	
-	void listarPartidos(Equipo e) {
+	void listarPartidosE(int idP) {
 		//Cambiar equipo por int
-		Equipo a=e;
+		int a=idP;
 		int i=1;
 		Partido uno;
 		Equipo dos;
+		int iddos;
+		int idtres;
 		Equipo tres;
 		int tamanio=0;
 		tamanio=lPartidos.size();
 		for(i=1;i<(tamanio+1);i++) {
 			uno=lPartidos.get(i);
-			dos=uno.getEquipo1();
-			tres=uno.getEquipo2();
-			if (a==dos||a==tres) {
+			iddos=uno.getEquipo1();
+			Iterator it22 = lEquipos.entrySet().iterator();
+			while (it22.hasNext()) {
+			    Entry<Integer,Equipo> e = (Entry<Integer, Equipo>) it22.next();
+			    int idPP=e.getKey();
+			    if (iddos==idPP) {
+			    System.out.println(e.getKey() + " " + e.getValue());
+			    }
+			}
+			
+			
+			
+			idtres=uno.getEquipo2();
+			Iterator it23 = lEquipos.entrySet().iterator();
+			while (it23.hasNext()) {
+			    Entry<Integer,Equipo> e = (Entry<Integer, Equipo>) it23.next();
+			    int idPP2=e.getKey();
+			    if (idtres==idPP2) {
+			    System.out.println(e.getKey() + " " + e.getValue());
+			    }
+			}
+			
+			
+			
+			if (a==iddos||a==idtres) {
 				System.out.println(uno);//REVISAR 
 			}
-		}
+		
 		//devuelve partidos y fechas
-	}
 	
+		
+	}
+	}
 	// Listar jugadores segun posicion
 	
 	void listarJugadores(String posicion) {
 		String pos=posicion;
-		int i=1;
-		Jugador uno;
-		String dos=null;
-		int tamanio=0;
-		tamanio=lJugadores.size();
-		for(i=1;i<(tamanio+1);i++) {
-			uno=lJugadores.get(i);
-			dos=uno.getPosicion();
-			if (pos==dos) {
-				System.out.println(uno);//REVISAR 
-			}
-		}
 		
-	}
+		
+		Iterator it = lJugadores.entrySet().iterator();
+		while (it.hasNext()) {
+		    Entry<Integer,Jugador> e = (Entry<Integer, Jugador>) it.next();
+		    Jugador tres=e.getValue();
+		    String pos2;
+		    int idbusqueda=e.getKey();
+		    pos2=tres.getPosicion();
+		    if (pos2==pos) {
+		    	System.out.println(pos);
+		    	System.out.println(e.getKey() + " " + e.getValue());
+		    	System.out.println(tres.getNombre());
+		    }
+		    
+		}
+		}
 	//Listar jugadores segun equipo
 	
-	void listarJugadoresEquipo(Equipo e) {
+	void listarJugadoresEquipo(int idE) {
 		
-		Equipo a=e;
-		int i=1;
-		Equipo uno;
-		LinkedList<Jugador> dos;
-		int tamanio=0;
-		tamanio=lEquipos.size();
-		for(i=1;i<(tamanio+1);i++) {
-			uno=lEquipos.get(i);
-			dos=uno.getJugadores();
-			if (a==uno) {
-				System.out.println(dos);//REVISAR 
-			}
+		int a=idE;
+
+		Iterator it = lEquipos.entrySet().iterator();
+		while (it.hasNext()) {
+		    Entry<Integer,Equipo> e1 = (Entry<Integer, Equipo>) it.next();
+		    Equipo uno=e1.getValue();
+		    int b;
+		    b=e1.getKey();
+		    
+		    if (a==b){
+		    	System.out.println(a);
+		    	System.out.println(e1.getKey() + " " + e1.getValue());
+		    	System.out.println(uno.getJugadores());
+		    }
+		    
 		}
 		
 	}
@@ -348,6 +507,7 @@ return nuevoequipo;
 		lArbitros =(Map<Integer, Arbitro>) ois.readObject();
 
 		lPartidos = (LinkedList<Partido>) ois.readObject();
+	ois.close();
 	}
 	// void CalcularCampeonTemporada() **OPCIONAL**
 	// void CalcularPosicionesEquipos(lequipos) **OPCIONAL**

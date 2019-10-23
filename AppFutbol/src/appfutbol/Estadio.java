@@ -16,4 +16,8 @@ Estadio(int aIdestadio,String aDireccion,String aCiudad,int aCapacidad){
 	Ciudad=aCiudad;
 	Capacidad=aCapacidad;
 }
+int getId() {
+	int id=Idestadio;
+	return id;
+}
 }

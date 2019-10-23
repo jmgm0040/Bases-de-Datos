@@ -5,10 +5,10 @@ import java.io.*;
 
 public class Partido {
 private int idpartido;
-private Estadio e;
+private int e;
 private String fecha;
-private Equipo eq1;
-private Equipo eq2;
+private int eq1;
+private int eq2;
 private boolean ida;
 private LinkedList<Arbitro> larbitros;
 private LinkedList<Jugador> leq1;
@@ -16,7 +16,7 @@ private LinkedList<Jugador> leq2;
 private int golesA;
 private int golesB;
 
-Partido(int aIdpartido,Estadio ae,String aFecha,Equipo aeq1, Equipo aeq2, boolean aida,int agolesA, int agolesB){
+Partido(int aIdpartido,int ae,String aFecha,int aeq1, int aeq2, boolean aida,int agolesA, int agolesB){
 
 	idpartido=aIdpartido;
 	e=ae;
@@ -35,19 +35,22 @@ public String getFecha() {
 	String fechap=fecha;
 	return fechap;
 }
-public Equipo getEquipo1() {
-	Equipo a=eq1;
+public int getEquipo1() {
+	int a=eq1;
 	return a;
 
 	
 }
-public Equipo getEquipo2() {
-	Equipo b=eq2;
+public int getEquipo2() {
+	int b=eq2;
 	return b;
 
 	
 }
-
+public int getId() {
+	int idP=idpartido;
+			return idP;
+}
 @Override
 public String toString() {
     return idpartido + " " + e + " " + fecha + " " + eq1 + " " + eq2 + " " + ida + " " + golesA + " " + golesB;

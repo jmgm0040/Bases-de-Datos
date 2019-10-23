@@ -16,6 +16,10 @@ Equipo(int aIdequipo, Estadio aEsta, int aPosicion){
 	ljuga=new LinkedList<Jugador>();
 	
 }
+public int getId() {
+	int id=idequipo;
+	return id;
+}
 
 public void AltaJugador(Jugador j) {
 	ljuga.add(j);
