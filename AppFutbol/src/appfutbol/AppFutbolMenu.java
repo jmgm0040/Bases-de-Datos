@@ -6,8 +6,11 @@ public class AppFutbolMenu {
 
 	
 
+	private static AppFutbol a;
+
 	public static void main(String[] args) {
 // TODO Auto-generated method stub
+		AppFutbol uno=new AppFutbol();
 		Scanner reader = new Scanner(System.in);	
 		int selector=0;	
 		System.out.print("Menu: \nIntroduzca Opcion:\n\n" + 
@@ -43,7 +46,10 @@ public class AppFutbolMenu {
 		switch(selector) {
 case 0: break;
 case 1:  System.out.print("Correcto");
-case 2: break;
+break;
+case 2: 
+	uno.altaEquipo();
+	break;
 case 3: break;
 case 4: break;
 case 5: break;
@@ -52,7 +58,10 @@ case 7: break;
 case 8: break;
 case 9: break;
 case 10: break;
-case 11: break;
+case 11: 
+	uno.listarEstadios();
+	
+	break;
 case 12: break;
 case 13: break;
 case 14: break;

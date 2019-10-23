@@ -1,9 +1,16 @@
 package appfutbol;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.*;
 
 
 
-public class AppFutbol {
+public class AppFutbol implements Serializable{
 	private Map<Integer, Equipo> lEquipos = new HashMap<Integer, Equipo>(); //id de equipo
 	private Map<Integer, Jugador> lJugadores = new HashMap<Integer, Jugador>(); // id jugador
 	private Map<Integer, Arbitro> lArbitros = new HashMap<Integer, Arbitro>();
@@ -18,6 +25,42 @@ int idEstadio = 0;
 String direccionEstadio = null;
 String ciudad = null;
 int capacidad = 0;
+Scanner reader = new Scanner(System.in);
+
+System.out.println("Introduzca id de equipo");
+
+
+idequipo=reader.nextInt();//Id equipo por teclado
+
+System.out.println("Introduzca id de estadio");
+reader.nextLine();
+
+idEstadio=reader.nextInt(); //Id estadio por teclado
+
+System.out.println("Introduzca direccion del estadio");
+reader.nextLine();
+
+
+direccionEstadio=reader.nextLine(); //Direccion estadio por teclado
+
+System.out.println(direccionEstadio);
+
+
+
+System.out.println("Introduzca la ciudad del estadio");
+
+
+
+ciudad=reader.nextLine(); //Ciudad por teclado
+
+
+
+System.out.println(ciudad);
+
+
+
+
+
 Estadio nuevoEstadio = new Estadio (idEstadio, direccionEstadio, ciudad, capacidad);
 lEstadios.put(idEstadio, nuevoEstadio); //Arreglar
 int posicion = 0;
@@ -53,7 +96,7 @@ return nuevoequipo;
 		String posicion=null; 
 		boolean titular=false; 
 		int num=0;
-		
+		//Añadir busqueda equipo por id
 		Jugador nuevojugador=new Jugador(id,nombre,email,tlf,salario,posicion,titular,num);
 		lJugadores.put(id,nuevojugador);
 		
@@ -220,7 +263,7 @@ return nuevoequipo;
 	
 	
 	void listarPartidos(Equipo e) {
-		
+		//Cambiar equipo por int
 		Equipo a=e;
 		int i=1;
 		Partido uno;
@@ -278,15 +321,33 @@ return nuevoequipo;
 	}
 	//Guardar datos
 	
-	public void Salvar() {
+	public void Salvar() throws FileNotFoundException, IOException{
+		ObjectOutputStream oss= new ObjectOutputStream(new FileOutputStream("salvar.txt"));
+		oss.writeObject(lEquipos);
 		
-		
+		oss.writeObject(lJugadores);
+
+		oss.writeObject(lEstadios);
+
+		oss.writeObject(lArbitros);
+
+		oss.writeObject(lPartidos);
+
+		oss.close();
 	}
 	
 	//Cargar datos
-	public void CargarDatos() {
+	public void CargarDatos() throws FileNotFoundException, IOException, ClassNotFoundException{
+		ObjectInputStream ois=new ObjectInputStream(new FileInputStream("salvar.txt"));
+		lEquipos= (Map<Integer, Equipo>) ois.readObject();
 		
-		
+		lJugadores = (Map<Integer, Jugador>) ois.readObject();
+
+		lEstadios = (Map<Integer, Estadio>) ois.readObject();
+
+		lArbitros =(Map<Integer, Arbitro>) ois.readObject();
+
+		lPartidos = (LinkedList<Partido>) ois.readObject();
 	}
 	// void CalcularCampeonTemporada() **OPCIONAL**
 	// void CalcularPosicionesEquipos(lequipos) **OPCIONAL**
