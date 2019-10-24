@@ -179,6 +179,8 @@ return nuevoequipo;
 		tipo=reader.nextLine();
 		
 		Arbitro nuevoarbitro=new Arbitro(id,nombre,email,tlf,tipo);
+		
+		
 		lArbitros.put(id,nuevoarbitro);
 		
 		
@@ -456,6 +458,7 @@ return nuevoequipo;
 		    	System.out.println(e.getKey() + " " + e.getValue());
 		    	System.out.println(tres.getNombre());
 		    	tres.toString();
+		    
 		    }
 		    
 		}
@@ -478,6 +481,7 @@ return nuevoequipo;
 		    	System.out.println(e1.getKey() + " " + e1.getValue());
 		    	System.out.println(uno.getJugadores());
 		    	e1.toString();
+		    	uno.toString();
 		    }
 		    
 		}
