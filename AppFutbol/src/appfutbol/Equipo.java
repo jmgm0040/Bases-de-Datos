@@ -35,4 +35,11 @@ public LinkedList<Jugador> getJugadores(){
 	
 }
 
+public int getPosicion() {
+	int pos=posicion;
+	return pos;
+}
+public String toString() {
+	return idequipo+" "+esta+" "+posicion+" "+ljuga;
+}
 }

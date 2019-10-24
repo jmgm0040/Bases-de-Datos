@@ -328,6 +328,7 @@ return nuevoequipo;
 		while (it.hasNext()) {
 		    Map.Entry e = (Map.Entry)it.next();
 		    System.out.println(e.getKey() + " " + e.getValue());
+		    e.toString();
 		}
 		
 		//System.out.println(lEstadios.values());//Comprobar la salida
@@ -344,6 +345,7 @@ return nuevoequipo;
 		while (it.hasNext()) {
 		    Entry<Integer,Equipo> e = (Entry<Integer, Equipo>) it.next();
 		    System.out.println(e.getKey() + " " + e.getValue());
+		    e.toString();
 		}
 	}
 	
@@ -355,6 +357,7 @@ return nuevoequipo;
 		while (it.hasNext()) {
 		    Map.Entry e = (Map.Entry)it.next();
 		    System.out.println(e.getKey() + " " + e.getValue());
+		    e.toString();
 		}
 	}
 	//Contar partidos
@@ -375,7 +378,7 @@ return nuevoequipo;
 		Partido uno;
 		String dos=null;
 		int tamanio=0;
-		tamanio=lPartidos.size();
+		tamanio=lPartidos.size();//NO FUNCIONAAA
 		for(i=1;i<(tamanio+1);i++) {
 			uno=lPartidos.get(i);//Arreglar
 			dos=uno.getFecha();
@@ -399,7 +402,7 @@ return nuevoequipo;
 		int idtres;
 		Equipo tres;
 		int tamanio=0;
-		tamanio=lPartidos.size();
+		tamanio=lPartidos.size();//NO FUNCIONAAA
 		for(i=1;i<(tamanio+1);i++) {
 			uno=lPartidos.get(i);
 			iddos=uno.getEquipo1();
@@ -452,6 +455,7 @@ return nuevoequipo;
 		    	System.out.println(pos);
 		    	System.out.println(e.getKey() + " " + e.getValue());
 		    	System.out.println(tres.getNombre());
+		    	tres.toString();
 		    }
 		    
 		}
@@ -473,6 +477,7 @@ return nuevoequipo;
 		    	System.out.println(a);
 		    	System.out.println(e1.getKey() + " " + e1.getValue());
 		    	System.out.println(uno.getJugadores());
+		    	e1.toString();
 		    }
 		    
 		}

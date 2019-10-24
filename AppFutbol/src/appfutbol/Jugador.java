@@ -33,4 +33,7 @@ public String getNombre() {
 	String nom=nombre;
 	return nom;
 }
+public String toString() {
+	return salario+" "+posicion+" "+titular+" "+num+" "+nombre;
+}
 }

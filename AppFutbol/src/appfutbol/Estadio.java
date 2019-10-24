@@ -20,4 +20,9 @@ int getId() {
 	int id=Idestadio;
 	return id;
 }
+@Override
+public String toString() {
+	String to=Idestadio+" "+Direccion+" "+Ciudad+" "+Capacidad;
+	return to;
+}
 }

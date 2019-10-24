@@ -31,5 +31,7 @@ public String getTlf() {
 	return tlf;
 }
 
-
+public String toString() {
+	return id+" "+nombre+" "+email+" "+tlf;
+}
 }
