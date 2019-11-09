@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.*;
 
 
-public class Partido {
+public class Partido implements Serializable {
 private int idpartido;
 private int e;
 private String fecha;
@@ -37,6 +37,18 @@ public String getFecha() {
 }
 public int getEquipo1() {
 	int a=eq1;
+	return a;
+
+	
+}
+public int getGoles1() {
+	int a=golesA;
+	return a;
+
+	
+}
+public int getGoles2() {
+	int a=golesB;
 	return a;
 
 	

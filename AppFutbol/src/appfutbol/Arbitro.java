@@ -4,7 +4,7 @@ import java.io.*;
 
 
 
-public class Arbitro extends Personas{
+public class Arbitro extends Personas implements Serializable{
 	int id;
 	String nombre;
 	String email;

@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.*;
 
 
-public class Estadio{
+public class Estadio implements Serializable{
 
 private int Idestadio;
 private String Direccion;

@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.*;
 
 
-public class Jugador extends Personas {
+public class Jugador extends Personas implements Serializable{
 
 private int salario;
 private String posicion;
@@ -19,6 +19,10 @@ titular=atitular;
 num=anum;
 nombre=anombre;
 	
+}
+public int getNumero() {
+	int numerorecibir=num;
+	return numerorecibir;
 }
 
 public String getPosicion() {

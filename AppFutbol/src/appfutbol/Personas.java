@@ -3,7 +3,7 @@ import java.util.*;
 import java.io.*;
 
 
-public class Personas {
+public class Personas implements Serializable{
 public int id;
 public String nombre;
 private String email;

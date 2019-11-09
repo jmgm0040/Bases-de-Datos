@@ -11,9 +11,12 @@ public class AppFutbolMenu {
 	public static void main(String[] args) {
 // TODO Auto-generated method stub
 		AppFutbol uno=new AppFutbol();
+		uno.inicializacion();
+
 		Scanner reader = new Scanner(System.in);	
 		int selector=0;	
 		int control=0;
+		try {
 		while(control==0) {
 		
 		System.out.print("Menu: \nIntroduzca Opcion:\n\n" + 
@@ -37,103 +40,138 @@ public class AppFutbolMenu {
 				"18: Cargar Sistema\n"+
 				"19: Salvar los datos\n"+
 				"20: Calcular el campeón\n"+
-				"21: Calcular posiciones\n"+
+				"21: Calcular goles de equipo\n"+
 				"22: Salir del programa\n"
 				
 				
 				
 );
 			selector=reader.nextInt();
-
+		
 	
 		switch(selector) {
 case 0: break;
 case 1:  
-	uno.altaEquipo();
+	try{
+		uno.altaEquipo();
+	
+		} catch (InputMismatchException e) {
+			
+			System.out.println("Error de sintaxis");//Control de errores
+		}
 break;
 case 2: 
-	
+	try {
 	System.out.println("Introduce el id del equipo a borrar");
 	int id=0;
 	id=reader.nextInt();
 	uno.bajaEquipo(id);
-	
+	}catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 3: 
-	
+	try {
 	System.out.println("Introduce el id del equipo del jugador a añadir");
 	int id2=0;
 	id2=reader.nextInt();
 	
-	uno.altaJugador(id2);
 	
+	uno.altaJugador(id2);
+	}
+	catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 4: 
-	System.out.println("Introduce el id del jugador a borrar");
+	try {
+	System.out.println("Introduce el id del equipo del jugador a borrar");
 	int idJ=0;
+	int idEq=0;
+	idEq=reader.nextInt();
+	System.out.println("Introduce el numero del jugador a borrar");
 	idJ=reader.nextInt();
-	uno.bajaArbitro(idJ);
-	
+	uno.bajaJugador(idEq,idJ);
+	}catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 5: 
+	try {
 	uno.altaArbitro();
+	}catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 6: 
+	try {
 	System.out.println("Introduce el id del arbitro a borrar");
 	int idA=0;
 	idA=reader.nextInt();
 	uno.bajaArbitro(idA);
+	}catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 7: 
-	
+	try {
 	uno.altaEstadio();
-	
+	}
+	catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 8: 
+	try {
 	uno.altaPartido();
-	
+	}
+	catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 9: 
+	try {
 	System.out.println("Introduce el id del partido a borrar");
 	int idP=0;
 	idP=reader.nextInt();
 	uno.bajaPartido(idP);
-	
+	}
+	catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 10: 
+	try {
+		
+	
 	uno.listarEquipos();
-	reader.nextLine();
-			String entrada;
-			do{
-		    entrada  = reader.nextLine();
-		    System.out.println(entrada);
-		 }
-		 while(!entrada.equals("")); 
-		 System.out.println("SE PRESIONÓ LA TECLA ENTER");
+	}catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 11: 
+	try {
 	uno.listarEstadios();
-	reader.nextLine();
-	String entrada3;
-	do{
-    entrada3  = reader.nextLine();
-    System.out.println(entrada3);
- }
- while(!entrada3.equals("")); 
- System.out.println("SE PRESIONÓ LA TECLA ENTER");
+	}
+	catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	
 	break;
 case 12: 
-	uno.listarArbitros();
-	reader.nextLine();
-	String entrada4;
-	do{
-    entrada4  = reader.nextLine();
-    System.out.println(entrada4);
- }
- while(!entrada4.equals("")); 
- System.out.println("SE PRESIONÓ LA TECLA ENTER");
 	
+	uno.listarArbitros();
+
 	
 	break;
 case 13: 
@@ -144,43 +182,61 @@ case 13:
 	
 	break;
 case 14: 
-	
-	System.out.println("Introduce la fecha del partido a buscar");
+	try {
+	System.out.println("Introduce la fecha del partido a buscar (Dia/Mes/Año):");
+	reader.nextLine();
 	String idL;
+	
 	idL=reader.nextLine();
 	
 	uno.listarPartidos(idL);
-	
+	}
+	catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 15: 
-	System.out.println("Introduce el equipo del partido a buscar");
+	try {
+	System.out.println("Introduce el id del equipo del partido a buscar");
 	int idE;
 	
 	idE=reader.nextInt();
 	uno.listarPartidosE(idE);
-	
+	}
+	catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 16: 
-	System.out.println("Introduce la posicion deseada: ");
-	String pos="";
+	try {
+	System.out.println("Introduce la posicion deseada (Delantero,Centro,Defensa,Portero): ");
+	String pos="null";
+	reader.nextLine();
 	pos=reader.nextLine();
 	
+	
 	uno.listarJugadores(pos);
-	reader.nextLine();
-	String entrada2;
-	do{
-    entrada2  = reader.nextLine();
-    System.out.println(entrada2);
- }
- while(!entrada2.equals("")); 
- System.out.println("SE PRESIONÓ LA TECLA ENTER");
+	}
+	catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
+
+
 	break;
 case 17: 
+	try {
 	System.out.println("Introduce el id de equipo a buscar");
 	int idJP;
 	
 	idJP=reader.nextInt();
 	uno.listarJugadoresEquipo(idJP);
+	}catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 18: 
 			try {
@@ -199,10 +255,20 @@ case 19:
 			}
 	break;
 case 20: 
-	
+	uno.CalcularCampeonTemporada();
 	break;
 case 21: 
+	try {
+	int equipo=0;
+	System.out.println("Introduce el id de equipo a calcular");
+	equipo=reader.nextInt();
 	
+	uno.CalcularPosicionesEquipos(equipo);
+	}
+	catch (InputMismatchException e) {
+		
+		System.out.println("Error de sintaxis");//Control de errores
+	}
 	break;
 case 22:
 control=1;
@@ -210,5 +276,9 @@ control=1;
 default: break;
 }
 	}
+		}catch (InputMismatchException e) {
+			
+			System.out.println("Error de sintaxis");//Control de errores
+		}
 	}
 }
