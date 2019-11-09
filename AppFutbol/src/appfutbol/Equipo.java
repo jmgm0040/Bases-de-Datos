@@ -24,7 +24,7 @@ public int getId() {
 
 public void AltaJugador(Jugador j) {
 	
-	ljuga.add(j);//Se machaca valores, solucionarlo
+	ljuga.add(j);
 }
 public void BajaJugador(Jugador j) {
 	
@@ -46,6 +46,6 @@ public int getGoles() {
 	return pos;
 }
 public String toString() {
-	return idequipo+" "+esta+" "+posicion+" "+ljuga;
+	return "| Id de Equipo: "+idequipo+" "+esta+"| Goles Totales: "+posicion+"| Lista de jugadores: "+ljuga;
 }
 }

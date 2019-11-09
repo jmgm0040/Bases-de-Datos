@@ -10,9 +10,6 @@ private String fecha;
 private int eq1;
 private int eq2;
 private boolean ida;
-private LinkedList<Arbitro> larbitros;
-private LinkedList<Jugador> leq1;
-private LinkedList<Jugador> leq2;
 private int golesA;
 private int golesB;
 
@@ -24,9 +21,9 @@ Partido(int aIdpartido,int ae,String aFecha,int aeq1, int aeq2, boolean aida,int
 	eq1=aeq1;
 	eq2=aeq2;
 	ida=aida;
-	larbitros=new LinkedList<Arbitro>();
-	leq1=new LinkedList<Jugador>();
-	leq2=new LinkedList<Jugador>();
+	new LinkedList<Arbitro>();
+	new LinkedList<Jugador>();
+	new LinkedList<Jugador>();
 	golesA=agolesA;
 	golesB=agolesB;
 	
@@ -65,7 +62,7 @@ public int getId() {
 }
 @Override
 public String toString() {
-    return idpartido + " " + e + " " + fecha + " " + eq1 + " " + eq2 + " " + ida + " " + golesA + " " + golesB;
+    return "| Id de partido: "+idpartido + "| Id de estadio:  " + e + "| Fecha:  " + fecha + "| Id de Equipo 1:  " + eq1 + "| Id de equipo 2:  " + eq2 + "| Ida (True o False):  " + ida + "| Goles Equipo 1:  " + golesA + "| Goles Equipo 2:  " + golesB;
   }
 
 

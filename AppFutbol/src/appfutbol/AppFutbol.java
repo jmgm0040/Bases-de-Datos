@@ -28,7 +28,7 @@ public class AppFutbol implements Serializable{
 	public Map<Integer,Partido> lPartidos=new HashMap<Integer,Partido>();
 	public SortedMap<Integer, Integer> lGoles=new TreeMap<Integer, Integer>(java.util.Collections.reverseOrder());
 	public ArrayList<String> array = new ArrayList<>();
-	// AppFutbol () //Aquí se pueden cargar los datos o en un nuevo método
+	
 	int contador=0;
 	void inicializacion() {
 		int idequipo2=9999;
@@ -203,7 +203,7 @@ return nuevoequipo;
 		boolean titular=false; 
 		int num=0;
 		int corrector=0;
-		Iterator<?> it44 = lEquipos.entrySet().iterator();//Solucionar
+		Iterator<?> it44 = lEquipos.entrySet().iterator();
 		while (it44.hasNext()) {
 		    Entry<Integer,Equipo> e = (Entry<Integer, Equipo>) it44.next();
 		    Equipo uno=e.getValue();
@@ -297,7 +297,7 @@ return nuevoequipo;
 		    b=e1.getKey();
 		    
 		    if (id2==b){
-		    
+		    	
 		    	uno.AltaJugador(nuevojugador);
 		    System.out.println("Jugador añadido\n");
 		    
@@ -381,8 +381,7 @@ return nuevoequipo;
 		}
 		
 		  
-		    //System.out.println("El jugador no existe");
-		// de un equipo, no del sistema
+		    
 	}
 		if(corrector==0) {
 	    	System.out.println("El equipo no existe\n");
@@ -520,7 +519,7 @@ return nuevoequipo;
 		lEstadios.put(Idestadio,nuevoestadio);
 		return nuevoestadio;
 		
-		//del sistema
+		
 	}
 	
 	//Alta Partido
@@ -706,10 +705,10 @@ return nuevoequipo;
 		Iterator<?> it = lEstadios.entrySet().iterator();
 		while (it.hasNext()) {
 		    Map.Entry e = (Map.Entry)it.next();
-		
-
-		    System.out.println(e.getKey() + " " + e.getValue());
-		    e.toString();
+		    Estadio mostrar=(Estadio) e.getValue();
+		    
+		    System.out.println(mostrar.toString());
+		   
 		}
 		
 		
@@ -721,24 +720,27 @@ return nuevoequipo;
 	
 	
 	void listarEquipos() {
-		//System.out.println(lEquipos.values());//Comprobar la salida
+		
 		Iterator<?> it = lEquipos.entrySet().iterator();
 		while (it.hasNext()) {
-		    Entry<Integer,Equipo> e = (Entry<Integer, Equipo>) it.next();
-		    System.out.println(e.getKey() + " " + e.getValue());
-		    e.toString();
+		    Entry<Integer,Equipo> e1 = (Entry<Integer, Equipo>) it.next();
+		    Equipo mostrar2=e1.getValue();
+		   
+		    System.out.println(mostrar2.toString());
+		    
 		}
 	}
 	
 	//Listar arbitros
 	
 	void listarArbitros() {
-		//System.out.println(lArbitros.values());//Comprobar la salida
+	
 		Iterator<?> it = lArbitros.entrySet().iterator();
 		while (it.hasNext()) {
 		    Map.Entry e = (Map.Entry)it.next();
-		    System.out.println(e.getKey() + " " + e.getValue());
-		    e.toString();
+		    Arbitro mostrar=(Arbitro) e.getValue();
+		    System.out.println(mostrar.toString());
+		 
 		}
 	}
 	//Contar partidos
@@ -750,16 +752,12 @@ return nuevoequipo;
 		return partidos;
 	}
 	
-	//Listar partidos ARREGLAR
+	//Listar partidos
 	
 	
 	void listarPartidos(String fecha) {
 		String afecha=fecha;
-		int i=1;
 		Partido uno;
-		String dos=null;
-		int tamanio=0;
-		tamanio=lPartidos.size();
 		int corrector=0;
 		Iterator<?> it22 = lPartidos.entrySet().iterator();
 		while (it22.hasNext()) {
@@ -785,15 +783,9 @@ return nuevoequipo;
 	void listarPartidosE(int idP) {
 		int corrector=0;
 		int a=idP;
-		int i=1;
 		Partido uno;
-		Equipo dos;
 		int iddos;
 		int idtres;
-		Equipo tres;
-		int tamanio=0;
-	
-		
 		Iterator<?> it33 = lPartidos.entrySet().iterator();
 		while (it33.hasNext()) {
 		    Entry<Integer,Partido> e = (Entry<Integer, Partido>) it33.next();
@@ -826,7 +818,6 @@ return nuevoequipo;
 		    Entry<Integer,Jugador> e = (Entry<Integer, Jugador>) it.next();
 		    Jugador tres=e.getValue();
 		    String pos2;
-		    int idbusqueda=e.getKey();
 		    pos2=tres.getPosicion();
 		   
 		    if (pos.equals(pos2)){
@@ -856,11 +847,22 @@ return nuevoequipo;
 		    b=e1.getKey();
 		    
 		    if (a==b){
-		    
-		    
-		    	System.out.println(uno.getJugadores());
-		    	corrector=1;
 		    	
+		    LinkedList<Jugador> mostrar=uno.getJugadores();
+		    Collections.reverse(mostrar);
+		    Iterator<Jugador> iter=mostrar.descendingIterator();
+		    while (iter.hasNext()) {
+		    
+		    
+		    	/*System.out.println(iter.next().getNombre());
+		    	System.out.println(iter.next().getPosicion());
+		    	System.out.println(iter.next().getEmail());
+		    	System.out.println(iter.next().getTlf());
+		    	System.out.println(iter.next().getNumero());*/
+		    	System.out.println(iter.next().toString());
+		    	corrector=1;
+
+		    }
 		    }
 		    
 		}
@@ -895,6 +897,7 @@ return nuevoequipo;
 	}
 	
 	//Cargar datos
+	@SuppressWarnings("unchecked")
 	public void CargarDatos() throws FileNotFoundException, IOException, ClassNotFoundException{
 		
 		

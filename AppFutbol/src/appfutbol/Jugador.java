@@ -35,9 +35,9 @@ public String getPosicion() {
 public String getNombre() {
 	
 	String nom=nombre;
-	return nom;
+	return "| Nombre de Jugador: "+nom;
 }
 public String toString() {
-	return salario+" "+posicion+" "+titular+" "+num+" "+nombre;
+	return "| Nombre del jugador: "+nombre+"| Posicion:  "+posicion+"| Titular:  "+titular+"| Numero:  "+num+"| Salario:  "+salario;
 }
 }

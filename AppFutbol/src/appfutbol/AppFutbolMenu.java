@@ -183,7 +183,7 @@ case 13:
 	
 	int nP=0;
 	nP=uno.ContarPartidos();
-	System.out.println(nP);
+	System.out.println("Total de partidos: "+nP);
 	
 	break;
 case 14: 

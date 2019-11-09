@@ -22,7 +22,7 @@ int getId() {
 }
 @Override
 public String toString() {
-	String to=Idestadio+" "+Direccion+" "+Ciudad+" "+Capacidad;
+	String to="|Id de Estadio: "+Idestadio+"| Dirección: "+Direccion+"| Ciudad: "+Ciudad+"| Capacidad: "+Capacidad;
 	return to;
 }
 }

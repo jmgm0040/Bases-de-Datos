@@ -24,6 +24,6 @@ public String getTipo() {
 	return tip;
 }
 public String toString() {
-	return tipo+" "+id+" "+nombre+" "+email+" "+tlf;
+	return "| Tipo de Arbitro: "+tipo+"| Id:  "+id+"| Nombre: "+nombre+"| Email:  "+email+"| Telefono: "+tlf;
 }
 }
