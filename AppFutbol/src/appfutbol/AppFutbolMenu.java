@@ -16,9 +16,9 @@ public class AppFutbolMenu {
 		Scanner reader = new Scanner(System.in);	
 		int selector=0;	
 		int control=0;
-		try {
-		while(control==0) {
 		
+		while(control==0) {
+			try {
 		System.out.print("Menu: \nIntroduzca Opcion:\n\n" + 
 				"1: Alta Equipo\n" + 
 				"2: Baja Equipo\n" + 
@@ -48,7 +48,12 @@ public class AppFutbolMenu {
 );
 			selector=reader.nextInt();
 		
-	
+}catch (InputMismatchException e) {
+				
+				System.out.println("Error de sintaxis");//Control de errores
+				reader.nextLine();
+				
+			}
 		switch(selector) {
 case 0: break;
 case 1:  
@@ -275,10 +280,8 @@ control=1;
 	break;
 default: break;
 }
-	}
-		}catch (InputMismatchException e) {
 			
-			System.out.println("Error de sintaxis");//Control de errores
-		}
+			}
+		
 	}
 }
