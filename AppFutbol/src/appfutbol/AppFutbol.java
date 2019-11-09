@@ -757,7 +757,11 @@ return nuevoequipo;
 	
 	void listarPartidos(String fecha) {
 		String afecha=fecha;
+		int i=1;
 		Partido uno;
+		String dos=null;
+		int tamanio=0;
+		tamanio=lPartidos.size();
 		int corrector=0;
 		Iterator<?> it22 = lPartidos.entrySet().iterator();
 		while (it22.hasNext()) {
@@ -783,9 +787,15 @@ return nuevoequipo;
 	void listarPartidosE(int idP) {
 		int corrector=0;
 		int a=idP;
+		int i=1;
 		Partido uno;
+		Equipo dos;
 		int iddos;
 		int idtres;
+		Equipo tres;
+		int tamanio=0;
+	
+		
 		Iterator<?> it33 = lPartidos.entrySet().iterator();
 		while (it33.hasNext()) {
 		    Entry<Integer,Partido> e = (Entry<Integer, Partido>) it33.next();
@@ -818,6 +828,7 @@ return nuevoequipo;
 		    Entry<Integer,Jugador> e = (Entry<Integer, Jugador>) it.next();
 		    Jugador tres=e.getValue();
 		    String pos2;
+		    int idbusqueda=e.getKey();
 		    pos2=tres.getPosicion();
 		   
 		    if (pos.equals(pos2)){
@@ -854,11 +865,7 @@ return nuevoequipo;
 		    while (iter.hasNext()) {
 		    
 		    
-		    	/*System.out.println(iter.next().getNombre());
-		    	System.out.println(iter.next().getPosicion());
-		    	System.out.println(iter.next().getEmail());
-		    	System.out.println(iter.next().getTlf());
-		    	System.out.println(iter.next().getNumero());*/
+		    	
 		    	System.out.println(iter.next().toString());
 		    	corrector=1;
 
@@ -897,7 +904,6 @@ return nuevoequipo;
 	}
 	
 	//Cargar datos
-	@SuppressWarnings("unchecked")
 	public void CargarDatos() throws FileNotFoundException, IOException, ClassNotFoundException{
 		
 		

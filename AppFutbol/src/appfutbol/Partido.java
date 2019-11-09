@@ -10,6 +10,9 @@ private String fecha;
 private int eq1;
 private int eq2;
 private boolean ida;
+private LinkedList<Arbitro> larbitros;
+private LinkedList<Jugador> leq1;
+private LinkedList<Jugador> leq2;
 private int golesA;
 private int golesB;
 
@@ -21,9 +24,9 @@ Partido(int aIdpartido,int ae,String aFecha,int aeq1, int aeq2, boolean aida,int
 	eq1=aeq1;
 	eq2=aeq2;
 	ida=aida;
-	new LinkedList<Arbitro>();
-	new LinkedList<Jugador>();
-	new LinkedList<Jugador>();
+	larbitros=new LinkedList<Arbitro>();
+	leq1=new LinkedList<Jugador>();
+	leq2=new LinkedList<Jugador>();
 	golesA=agolesA;
 	golesB=agolesB;
 	
